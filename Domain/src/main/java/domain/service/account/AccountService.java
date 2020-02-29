@@ -1,12 +1,12 @@
 package domain.service.account;
 
 import com.google.common.eventbus.EventBus;
-import domain.ports.leftport.IAccountService;
 import domain.model.Event;
 import domain.model.IEventStore;
 import domain.model.OptimisticLockingException;
 import domain.model.account.Account;
 import domain.model.account.NonSufficientFundsException;
+import domain.ports.leftport.IAccountService;
 import domain.service.Retrier;
 
 import java.util.List;
@@ -55,9 +55,7 @@ public class AccountService implements IAccountService {
         return process(command.getId(), (account) -> account.withdraw(command.getAmount()));
     }
 
-    private Account process(UUID accountId, Consumer<Account> consumer)
-            throws AccountNotFoundException, OptimisticLockingException {
-
+    private Account process(UUID accountId, Consumer<Account> consumer) throws AccountNotFoundException, OptimisticLockingException {
         return conflictRetrier.get(() -> {
             Optional<Account> possibleAccount = loadAccount(accountId);
             Account account = possibleAccount.orElseThrow(() -> new AccountNotFoundException(accountId));
