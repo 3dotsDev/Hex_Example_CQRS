@@ -1,7 +1,7 @@
 package application.adapter.client;
 
 import domain.model.client.Client;
-import domain.service.client.ClientService;
+import domain.ports.leftport.IClientService;
 import domain.service.client.UpdateClientCommand;
 import io.dropwizard.jersey.params.UUIDParam;
 
@@ -19,9 +19,9 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 @Produces(APPLICATION_JSON)
 @Path("/clients/{id}")
 public class ClientResource {
-    private ClientService clientService;
+    private IClientService clientService;
 
-    public ClientResource(ClientService clientService) {
+    public ClientResource(IClientService clientService) {
         this.clientService = checkNotNull(clientService);
     }
 

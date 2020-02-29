@@ -2,7 +2,7 @@ package infrastructure.projection.clientaccount;
 
 import com.google.common.collect.ImmutableList;
 import domain.projection.clientaccount.ClientAccountProjection;
-import domain.projection.clientaccount.IAccountsRepository;
+import domain.ports.rightport.IAccountsRepository;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

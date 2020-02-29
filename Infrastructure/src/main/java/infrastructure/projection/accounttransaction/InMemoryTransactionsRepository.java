@@ -1,7 +1,7 @@
 package infrastructure.projection.accounttransaction;
 
 import domain.projection.accountstransaction.AccountTransactionProjection;
-import domain.projection.accountstransaction.ITransactionsRepository;
+import domain.ports.rightport.ITransactionsRepository;
 
 import java.util.List;
 import java.util.Map;

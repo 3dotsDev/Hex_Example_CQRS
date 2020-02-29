@@ -1,4 +1,6 @@
-package domain.projection.accountstransaction;
+package domain.ports.rightport;
+
+import domain.projection.accountstransaction.AccountTransactionProjection;
 
 import java.util.List;
 import java.util.UUID;

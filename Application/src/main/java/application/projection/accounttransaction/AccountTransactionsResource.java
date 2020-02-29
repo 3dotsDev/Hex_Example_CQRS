@@ -1,7 +1,7 @@
 package application.projection.accounttransaction;
 
 import domain.projection.accountstransaction.AccountTransactionProjection;
-import domain.projection.accountstransaction.ITransactionsRepository;
+import domain.ports.rightport.ITransactionsRepository;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

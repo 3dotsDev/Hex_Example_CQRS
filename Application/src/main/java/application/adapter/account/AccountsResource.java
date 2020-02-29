@@ -1,7 +1,7 @@
 package application.adapter.account;
 
 import domain.model.account.Account;
-import domain.service.account.AccountService;
+import domain.ports.leftport.IAccountService;
 import domain.service.account.OpenAccountCommand;
 
 import javax.validation.Valid;
@@ -21,9 +21,9 @@ import static javax.ws.rs.core.UriBuilder.fromResource;
 @Path("/accounts")
 public class AccountsResource {
 
-    private final AccountService accountService;
+    private final IAccountService accountService;
 
-    public AccountsResource(AccountService accountService) {
+    public AccountsResource(IAccountService accountService) {
         this.accountService = checkNotNull(accountService);
     }
 

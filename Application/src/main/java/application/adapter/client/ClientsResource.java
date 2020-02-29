@@ -1,8 +1,8 @@
 package application.adapter.client;
 
 import domain.model.client.Client;
-import domain.service.client.ClientService;
 import domain.service.client.EnrollClientCommand;
+import domain.ports.leftport.IClientService;
 
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -21,9 +21,9 @@ import static javax.ws.rs.core.UriBuilder.fromResource;
 @Produces(APPLICATION_JSON)
 @Path("/clients")
 public class ClientsResource {
-    private ClientService clientService;
+    private IClientService clientService;
 
-    public ClientsResource(ClientService clientService) {
+    public ClientsResource(IClientService clientService) {
         this.clientService = checkNotNull(clientService);
     }
 

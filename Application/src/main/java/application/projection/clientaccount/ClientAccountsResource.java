@@ -1,7 +1,7 @@
 package application.projection.clientaccount;
 
 import domain.projection.clientaccount.ClientAccountProjection;
-import domain.projection.clientaccount.IAccountsRepository;
+import domain.ports.rightport.IAccountsRepository;
 import io.dropwizard.jersey.params.UUIDParam;
 
 import javax.ws.rs.*;

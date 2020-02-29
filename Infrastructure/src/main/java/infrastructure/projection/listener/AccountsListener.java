@@ -5,7 +5,7 @@ import domain.model.account.AccountDepositedEvent;
 import domain.model.account.AccountOpenedEvent;
 import domain.model.account.AccountWithdrawnEvent;
 import domain.projection.clientaccount.ClientAccountProjection;
-import domain.projection.clientaccount.IAccountsRepository;
+import domain.ports.rightport.IAccountsRepository;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

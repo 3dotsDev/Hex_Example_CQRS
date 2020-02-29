@@ -1,7 +1,7 @@
 package application.adapter.account;
 
 import domain.model.account.Account;
-import domain.service.account.AccountService;
+import domain.ports.leftport.IAccountService;
 import io.dropwizard.jersey.params.UUIDParam;
 
 import javax.ws.rs.*;
@@ -17,9 +17,9 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 @Path("/accounts/{id}")
 public class AccountResource {
 
-    private final AccountService accountService;
+    private final IAccountService accountService;
 
-    public AccountResource(AccountService accountService) {
+    public AccountResource(IAccountService accountService) {
         this.accountService = checkNotNull(accountService);
     }
 

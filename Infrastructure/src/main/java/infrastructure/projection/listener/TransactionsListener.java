@@ -4,7 +4,7 @@ import com.google.common.eventbus.Subscribe;
 import domain.model.account.AccountDepositedEvent;
 import domain.model.account.AccountWithdrawnEvent;
 import domain.projection.accountstransaction.AccountTransactionProjection;
-import domain.projection.accountstransaction.ITransactionsRepository;
+import domain.ports.rightport.ITransactionsRepository;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static domain.projection.accountstransaction.TransactionType.DEPOSIT;

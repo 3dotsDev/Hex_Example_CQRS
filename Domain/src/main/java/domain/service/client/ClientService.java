@@ -1,5 +1,6 @@
 package domain.service.client;
 
+import domain.ports.leftport.IClientService;
 import domain.model.Event;
 import domain.model.IEventStore;
 import domain.model.OptimisticLockingException;
@@ -15,7 +16,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.Collections.singletonList;
 import static java.util.UUID.randomUUID;
 
-public class ClientService {
+public class ClientService implements IClientService {
     private final IEventStore eventStore;
     private final Retrier conflictRetrier;
 
@@ -25,18 +26,21 @@ public class ClientService {
         this.conflictRetrier = new Retrier(singletonList(OptimisticLockingException.class), maxAttempts);
     }
 
+    @Override
     public Client process(EnrollClientCommand command) {
         Client client = new Client(randomUUID(), command.getName(), command.getEmail());
         storeEvents(client);
         return client;
     }
 
+    @Override
     public Optional<Client> loadClient(UUID id) {
         List<Event> eventStream = eventStore.load(id);
         if (eventStream.isEmpty()) return Optional.empty();
         return Optional.of(new Client(id, eventStream));
     }
 
+    @Override
     public void process(UpdateClientCommand command) {
         process(command.getId(), c -> c.update(command.getName(), command.getEmail()));
     }

@@ -1,4 +1,6 @@
-package domain.projection.clientaccount;
+package domain.ports.rightport;
+
+import domain.projection.clientaccount.ClientAccountProjection;
 
 import java.math.BigDecimal;
 import java.util.List;
