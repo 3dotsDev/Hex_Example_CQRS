@@ -3,12 +3,12 @@ package domain.service.account;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import domain.model.Event;
-import domain.model.IEventStore;
 import domain.model.OptimisticLockingException;
 import domain.model.account.Account;
 import domain.model.account.AccountDepositedEvent;
 import domain.model.account.AccountOpenedEvent;
 import domain.model.account.AccountWithdrawnEvent;
+import domain.ports.infrastructureport.IEventStore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

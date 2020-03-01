@@ -1,10 +1,10 @@
 package domain.service.client;
 
-import domain.ports.leftport.IClientService;
 import domain.model.Event;
-import domain.model.IEventStore;
 import domain.model.OptimisticLockingException;
 import domain.model.client.Client;
+import domain.ports.applicationport.IClientService;
+import domain.ports.infrastructureport.IEventStore;
 import domain.service.Retrier;
 
 import java.util.List;

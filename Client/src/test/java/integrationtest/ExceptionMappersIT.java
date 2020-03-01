@@ -1,7 +1,7 @@
 package integrationtest;
 
-import application.adapter.OptimisticLockingExceptionMapper;
-import application.adapter.account.AccountNotFoundExceptionMapper;
+import application.commandadapter.OptimisticLockingExceptionMapper;
+import application.commandadapter.account.AccountNotFoundExceptionMapper;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
