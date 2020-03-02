@@ -1,4 +1,4 @@
-package domain.service.client;
+package domain.commands.client;
 
 import domain.model.client.Email;
 

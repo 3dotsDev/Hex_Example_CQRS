@@ -1,6 +1,6 @@
 package application.commandadapter.account;
 
-import domain.service.account.AccountNotFoundException;
+import domain.ports.applicationport.AccountNotFoundException;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
 import org.junit.jupiter.api.Test;

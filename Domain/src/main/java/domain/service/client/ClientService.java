@@ -1,8 +1,11 @@
 package domain.service.client;
 
+import domain.commands.client.EnrollClientCommand;
+import domain.commands.client.UpdateClientCommand;
 import domain.model.Event;
 import domain.model.OptimisticLockingException;
 import domain.model.client.Client;
+import domain.ports.applicationport.ClientNotFoundException;
 import domain.ports.applicationport.IClientService;
 import domain.ports.infrastructureport.IEventStore;
 import domain.service.Retrier;

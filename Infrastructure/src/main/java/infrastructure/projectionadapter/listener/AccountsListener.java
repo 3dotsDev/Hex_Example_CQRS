@@ -9,6 +9,9 @@ import domain.projection.clientaccount.ClientAccountProjection;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+/**
+ * Listenerobjekt stellt die handles bereit fuer das AccountRepository
+ */
 public class AccountsListener {
     private final IAccountsRepository accountsRepository;
 

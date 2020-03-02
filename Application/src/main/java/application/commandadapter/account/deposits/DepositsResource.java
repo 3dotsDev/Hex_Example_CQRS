@@ -1,10 +1,10 @@
 package application.commandadapter.account.deposits;
 
 
+import domain.commands.account.DepositAccountCommand;
 import domain.model.OptimisticLockingException;
+import domain.ports.applicationport.AccountNotFoundException;
 import domain.ports.applicationport.IAccountService;
-import domain.service.account.AccountNotFoundException;
-import domain.service.account.DepositAccountCommand;
 import io.dropwizard.jersey.params.UUIDParam;
 
 import javax.validation.Valid;

@@ -1,10 +1,14 @@
 package domain.service.account;
 
 import com.google.common.eventbus.EventBus;
+import domain.commands.account.DepositAccountCommand;
+import domain.commands.account.OpenAccountCommand;
+import domain.commands.account.WithdrawAccountCommand;
 import domain.model.Event;
 import domain.model.OptimisticLockingException;
 import domain.model.account.Account;
 import domain.model.account.NonSufficientFundsException;
+import domain.ports.applicationport.AccountNotFoundException;
 import domain.ports.applicationport.IAccountService;
 import domain.ports.infrastructureport.IEventStore;
 import domain.service.Retrier;

@@ -1,6 +1,6 @@
 package application.commandadapter.account;
 
-import domain.service.account.AccountNotFoundException;
+import domain.ports.applicationport.AccountNotFoundException;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;

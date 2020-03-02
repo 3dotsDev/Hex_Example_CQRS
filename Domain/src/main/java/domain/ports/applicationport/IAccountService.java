@@ -1,12 +1,11 @@
 package domain.ports.applicationport;
 
+import domain.commands.account.DepositAccountCommand;
+import domain.commands.account.OpenAccountCommand;
+import domain.commands.account.WithdrawAccountCommand;
 import domain.model.OptimisticLockingException;
 import domain.model.account.Account;
 import domain.model.account.NonSufficientFundsException;
-import domain.service.account.AccountNotFoundException;
-import domain.service.account.DepositAccountCommand;
-import domain.service.account.OpenAccountCommand;
-import domain.service.account.WithdrawAccountCommand;
 
 import java.util.Optional;
 import java.util.UUID;

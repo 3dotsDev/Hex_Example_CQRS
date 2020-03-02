@@ -1,10 +1,10 @@
 package application.commandadapter.account.withdrawals;
 
+import domain.commands.account.WithdrawAccountCommand;
 import domain.model.OptimisticLockingException;
 import domain.model.account.NonSufficientFundsException;
+import domain.ports.applicationport.AccountNotFoundException;
 import domain.ports.applicationport.IAccountService;
-import domain.service.account.AccountNotFoundException;
-import domain.service.account.WithdrawAccountCommand;
 import io.dropwizard.jersey.params.UUIDParam;
 
 import javax.validation.Valid;

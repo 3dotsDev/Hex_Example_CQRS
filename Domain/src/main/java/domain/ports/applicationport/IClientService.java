@@ -1,8 +1,8 @@
 package domain.ports.applicationport;
 
+import domain.commands.client.EnrollClientCommand;
+import domain.commands.client.UpdateClientCommand;
 import domain.model.client.Client;
-import domain.service.client.EnrollClientCommand;
-import domain.service.client.UpdateClientCommand;
 
 import java.util.Optional;
 import java.util.UUID;

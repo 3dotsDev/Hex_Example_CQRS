@@ -1,8 +1,8 @@
 package application.commandadapter.client;
 
+import domain.commands.client.UpdateClientCommand;
 import domain.model.client.Client;
 import domain.ports.applicationport.IClientService;
-import domain.service.client.UpdateClientCommand;
 import io.dropwizard.jersey.params.UUIDParam;
 
 import javax.validation.Valid;

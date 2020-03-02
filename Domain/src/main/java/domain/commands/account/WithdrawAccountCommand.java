@@ -1,4 +1,4 @@
-package domain.service.account;
+package domain.commands.account;
 
 import java.math.BigDecimal;
 import java.util.UUID;

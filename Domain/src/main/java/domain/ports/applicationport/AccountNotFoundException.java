@@ -1,4 +1,4 @@
-package domain.service.account;
+package domain.ports.applicationport;
 
 import java.util.UUID;
 

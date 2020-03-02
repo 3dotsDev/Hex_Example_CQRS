@@ -1,8 +1,8 @@
 package application.commandadapter.account;
 
+import domain.commands.account.OpenAccountCommand;
 import domain.model.account.Account;
 import domain.ports.applicationport.IAccountService;
-import domain.service.account.OpenAccountCommand;
 
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;

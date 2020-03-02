@@ -2,6 +2,9 @@ package domain.service.account;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import domain.commands.account.DepositAccountCommand;
+import domain.commands.account.OpenAccountCommand;
+import domain.commands.account.WithdrawAccountCommand;
 import domain.model.Event;
 import domain.model.OptimisticLockingException;
 import domain.model.account.Account;

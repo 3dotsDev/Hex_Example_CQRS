@@ -15,6 +15,11 @@ public class Account extends Aggregate {
     private BigDecimal balance;
     private UUID clientId;
 
+    /**
+     * event creation  AccountOpenedEvent (matching to command)
+     * @param id
+     * @param clientId
+     */
     public Account(UUID id, UUID clientId) {
         super(id);
         AccountOpenedEvent accountOpenedEvent = new AccountOpenedEvent(
@@ -26,6 +31,10 @@ public class Account extends Aggregate {
         super(id, eventStream);
     }
 
+    /**
+     * event creation AccountDepositedEvent (matching to command)
+     * @param amount
+     */
     public void deposit(BigDecimal amount) {
         BigDecimal newBalance = balance.add(amount);
         AccountDepositedEvent accountDepositedEvent = new AccountDepositedEvent(
@@ -33,6 +42,10 @@ public class Account extends Aggregate {
         applyNewEvent(accountDepositedEvent);
     }
 
+    /**
+     * event creation  AccountWithdrawnEvent (matching to command)
+     * @param amount
+     */
     public void withdraw(BigDecimal amount) {
         BigDecimal newBalance = balance.subtract(amount);
         if (newBalance.signum() == -1) throw new NonSufficientFundsException(getId(), balance, amount);
