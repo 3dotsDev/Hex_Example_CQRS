@@ -8,6 +8,9 @@ import java.util.UUID;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
 
+/**
+ * Kommunikationsklasse fuer Rest Service
+ */
 public class DepositDto {
     @JsonProperty(access = READ_ONLY)
     private UUID accountId;

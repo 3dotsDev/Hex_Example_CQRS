@@ -15,6 +15,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 
+/**
+ * RestServiceResource fuer commanderstellung (withdraw)
+ */
 @Consumes(APPLICATION_JSON)
 @Produces(APPLICATION_JSON)
 @Path("/accounts/{id}/withdrawals")

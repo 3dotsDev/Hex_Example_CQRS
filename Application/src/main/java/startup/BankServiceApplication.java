@@ -78,7 +78,7 @@ public class BankServiceApplication extends Application<Configuration> {
         environment.jersey().register(new ClientsResource(clientService));
         environment.jersey().register(new ClientResource(clientService));
 
-        // read model
+        // read model (projections)
         ITransactionsRepository transactionsRepository = new InMemoryTransactionsRepository();
         eventBus.register(new TransactionsListener(transactionsRepository));
         environment.jersey().register(new AccountTransactionsResource(transactionsRepository));

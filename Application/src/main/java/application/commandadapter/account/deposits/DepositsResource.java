@@ -14,6 +14,9 @@ import javax.ws.rs.core.Response;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
+/**
+ * RestServiceResource fuer commanderstellung (deposit)
+ */
 @Consumes(APPLICATION_JSON)
 @Produces(APPLICATION_JSON)
 @Path("/accounts/{id}/deposits")

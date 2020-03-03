@@ -12,6 +12,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 
+/**
+ * RestServiceResource fuer acountservice  NUR get (account)
+ */
 @Consumes(APPLICATION_JSON)
 @Produces(APPLICATION_JSON)
 @Path("/accounts/{id}")
@@ -31,6 +34,11 @@ public class AccountResource {
         return Response.ok(accountDto).build();
     }
 
+    /**
+     * Mapper
+     * @param account
+     * @return DTO Object
+     */
     private AccountDto toDto(Account account) {
         AccountDto dto = new AccountDto();
         dto.setId(account.getId());

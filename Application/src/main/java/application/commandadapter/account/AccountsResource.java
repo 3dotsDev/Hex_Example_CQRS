@@ -16,6 +16,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.UriBuilder.fromResource;
 
+/**
+ * RestServiceResource fuer acountservice command erstellung (account)
+ */
 @Consumes(APPLICATION_JSON)
 @Produces(APPLICATION_JSON)
 @Path("/accounts")

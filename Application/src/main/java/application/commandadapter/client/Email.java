@@ -10,6 +10,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Annotation Interface fuer Emailfelder -> nutzt emailSpezification
+ */
 @NotNull
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

@@ -8,6 +8,9 @@ import java.util.UUID;
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
 import static java.math.BigDecimal.ROUND_HALF_UP;
 
+/**
+ * Kommunikationsklasse fuer Rest Service
+ */
 public class AccountDto {
     @JsonProperty(access = READ_ONLY)
     private UUID id;

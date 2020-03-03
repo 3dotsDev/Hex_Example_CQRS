@@ -22,6 +22,32 @@ public class AccountTransactionsIT extends BaseIT {
         assertThat(response.getStatus(), equalTo(200));
     }
 
+    /**
+     * Response schaut folgendermassen aus ...
+     * [
+     *     {
+     *         "accountId": "485eb505-0fc5-4ced-a339-ebc3973aaa9d",
+     *         "type": "DEPOSIT",
+     *         "amount": 99,
+     *         "timestamp": 1583247313144,
+     *         "version": 2
+     *     },
+     *     {
+     *         "accountId": "485eb505-0fc5-4ced-a339-ebc3973aaa9d",
+     *         "type": "DEPOSIT",
+     *         "amount": 1,
+     *         "timestamp": 1583247313151,
+     *         "version": 3
+     *     },
+     *     {
+     *         "accountId": "485eb505-0fc5-4ced-a339-ebc3973aaa9d",
+     *         "type": "WITHDRAWAL",
+     *         "amount": 10,
+     *         "timestamp": 1583247313162,
+     *         "version": 4
+     *     }
+     * ]
+     */
     @Test
     void returnTransactions() {
         String accountId = stateSetup.newAccount(randomUUID().toString());
