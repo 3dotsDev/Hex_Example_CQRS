@@ -5,13 +5,13 @@ import com.google.common.eventbus.Subscribe;
 import domain.commands.account.DepositAccountCommand;
 import domain.commands.account.OpenAccountCommand;
 import domain.commands.account.WithdrawAccountCommand;
-import domain.model.Event;
-import domain.model.OptimisticLockingException;
-import domain.model.account.Account;
-import domain.model.account.AccountDepositedEvent;
-import domain.model.account.AccountOpenedEvent;
-import domain.model.account.AccountWithdrawnEvent;
 import domain.ports.infrastructureport.IEventStore;
+import domain.writemodel.Event;
+import domain.writemodel.OptimisticLockingException;
+import domain.writemodel.account.Account;
+import domain.writemodel.account.AccountDepositedEvent;
+import domain.writemodel.account.AccountOpenedEvent;
+import domain.writemodel.account.AccountWithdrawnEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +30,7 @@ import static org.mockito.Mockito.*;
 class AccountServiceTest {
     private IEventStore eventStore;
     private EventBusCounter eventBusCounter;
-    private AccountService accountService;
+    private AccountWriteService accountService;
 
     @BeforeEach
     void setUp() {
@@ -38,7 +38,7 @@ class AccountServiceTest {
         EventBus eventBus = new EventBus();
         eventBusCounter = new EventBusCounter();
         eventBus.register(eventBusCounter);
-        accountService = new AccountService(eventStore, eventBus);
+        accountService = new AccountWriteService(eventStore, eventBus);
     }
 
     @Test

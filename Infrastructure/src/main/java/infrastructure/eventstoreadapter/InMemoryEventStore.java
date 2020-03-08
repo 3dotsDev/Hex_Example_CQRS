@@ -1,9 +1,9 @@
 package infrastructure.eventstoreadapter;
 
 import com.google.common.collect.ImmutableList;
-import domain.model.Event;
-import domain.model.OptimisticLockingException;
 import domain.ports.infrastructureport.IEventStore;
+import domain.writemodel.Event;
+import domain.writemodel.OptimisticLockingException;
 
 import java.util.List;
 import java.util.Map;

@@ -2,23 +2,23 @@ package startup;
 
 import application.commandadapter.OptimisticLockingExceptionMapper;
 import application.commandadapter.account.AccountNotFoundExceptionMapper;
-import application.commandadapter.account.AccountResource;
-import application.commandadapter.account.AccountsResource;
-import application.commandadapter.account.deposits.DepositsResource;
-import application.commandadapter.account.withdrawals.WithdrawalsResource;
-import application.commandadapter.client.ClientResource;
-import application.commandadapter.client.ClientsResource;
+import application.commandadapter.account.AccountWriteResource;
+import application.commandadapter.account.AccountsWriteResource;
+import application.commandadapter.account.deposits.DepositsWriteResource;
+import application.commandadapter.account.withdrawals.WithdrawalsWriteResource;
+import application.commandadapter.client.ClientWriteResource;
+import application.commandadapter.client.ClientsWriteResource;
 import application.projectionadapter.accounttransaction.AccountTransactionsResource;
 import application.projectionadapter.clientaccount.ClientAccountsResource;
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.EventBus;
-import domain.ports.applicationport.IAccountService;
-import domain.ports.applicationport.IClientService;
+import domain.ports.applicationport.IAccountWriteService;
+import domain.ports.applicationport.IClientWriteService;
 import domain.ports.infrastructureport.IAccountsRepository;
 import domain.ports.infrastructureport.IEventStore;
 import domain.ports.infrastructureport.ITransactionsRepository;
-import domain.service.account.AccountService;
-import domain.service.client.ClientService;
+import domain.service.account.AccountWriteService;
+import domain.service.client.ClientWriteService;
 import infrastructure.eventstoreadapter.InMemoryEventStore;
 import infrastructure.projectionadapter.accounttransaction.InMemoryTransactionsRepository;
 import infrastructure.projectionadapter.clientaccount.InMemoryAccountsRepository;
@@ -67,18 +67,26 @@ public class BankServiceApplication extends Application<Configuration> {
         IEventStore eventStore = new InMemoryEventStore();
         EventBus eventBus = new AsyncEventBus(newSingleThreadExecutor());
 
-        // domain model
-        IAccountService accountService = new AccountService(eventStore, eventBus);
-        environment.jersey().register(new AccountsResource(accountService));
-        environment.jersey().register(new AccountResource(accountService));
-        environment.jersey().register(new DepositsResource(accountService));
-        environment.jersey().register(new WithdrawalsResource(accountService));
-
-        IClientService clientService = new ClientService(eventStore);
-        environment.jersey().register(new ClientsResource(clientService));
-        environment.jersey().register(new ClientResource(clientService));
+        // write model
+        registerWriteResources(environment, eventStore, eventBus);
 
         // read model (projections)
+        registerReadResources(environment, eventBus);
+    }
+
+    private void registerWriteResources(Environment environment, IEventStore eventStore, EventBus eventBus) {
+        IAccountWriteService accountWriteService = new AccountWriteService(eventStore, eventBus);
+        environment.jersey().register(new AccountsWriteResource(accountWriteService));
+        environment.jersey().register(new AccountWriteResource(accountWriteService));
+        environment.jersey().register(new DepositsWriteResource(accountWriteService));
+        environment.jersey().register(new WithdrawalsWriteResource(accountWriteService));
+
+        IClientWriteService clientService = new ClientWriteService(eventStore);
+        environment.jersey().register(new ClientsWriteResource(clientService));
+        environment.jersey().register(new ClientWriteResource(clientService));
+    }
+
+    private void registerReadResources(Environment environment, EventBus eventBus) {
         ITransactionsRepository transactionsRepository = new InMemoryTransactionsRepository();
         eventBus.register(new TransactionsListener(transactionsRepository));
         environment.jersey().register(new AccountTransactionsResource(transactionsRepository));
@@ -87,4 +95,5 @@ public class BankServiceApplication extends Application<Configuration> {
         eventBus.register(new AccountsListener(accountsRepository));
         environment.jersey().register(new ClientAccountsResource(accountsRepository));
     }
+
 }

@@ -1,7 +1,7 @@
 package domain.ports.infrastructureport;
 
-import domain.model.Event;
-import domain.model.OptimisticLockingException;
+import domain.writemodel.Event;
+import domain.writemodel.OptimisticLockingException;
 
 import java.util.List;
 import java.util.UUID;

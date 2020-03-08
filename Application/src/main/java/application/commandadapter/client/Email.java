@@ -27,7 +27,7 @@ public @interface Email {
 
     class EmailValidator implements ConstraintValidator<Email, String> {
 
-        private domain.model.client.Email.EmailISpecification emailSpecification = new domain.model.client.Email.EmailISpecification();
+        private domain.writemodel.client.Email.EmailISpecification emailSpecification = new domain.writemodel.client.Email.EmailISpecification();
 
         @Override
         public void initialize(Email constraintAnnotation) {

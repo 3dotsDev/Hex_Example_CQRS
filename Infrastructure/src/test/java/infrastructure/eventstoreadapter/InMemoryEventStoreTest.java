@@ -1,8 +1,8 @@
 package infrastructure.eventstoreadapter;
 
-import domain.model.Event;
-import domain.model.OptimisticLockingException;
 import domain.ports.infrastructureport.IEventStore;
+import domain.writemodel.Event;
+import domain.writemodel.OptimisticLockingException;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

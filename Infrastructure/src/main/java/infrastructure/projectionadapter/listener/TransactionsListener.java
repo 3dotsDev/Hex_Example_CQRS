@@ -1,10 +1,10 @@
 package infrastructure.projectionadapter.listener;
 
 import com.google.common.eventbus.Subscribe;
-import domain.model.account.AccountDepositedEvent;
-import domain.model.account.AccountWithdrawnEvent;
 import domain.ports.infrastructureport.ITransactionsRepository;
 import domain.projection.accountstransaction.AccountTransactionProjection;
+import domain.writemodel.account.AccountDepositedEvent;
+import domain.writemodel.account.AccountWithdrawnEvent;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static domain.projection.accountstransaction.TransactionType.DEPOSIT;

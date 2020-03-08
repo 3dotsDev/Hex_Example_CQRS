@@ -1,6 +1,6 @@
 package application.commandadapter;
 
-import domain.model.OptimisticLockingException;
+import domain.writemodel.OptimisticLockingException;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;

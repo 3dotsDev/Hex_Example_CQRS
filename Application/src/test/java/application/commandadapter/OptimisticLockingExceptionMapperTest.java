@@ -1,6 +1,6 @@
 package application.commandadapter;
 
-import domain.model.OptimisticLockingException;
+import domain.writemodel.OptimisticLockingException;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
 import org.junit.jupiter.api.Test;

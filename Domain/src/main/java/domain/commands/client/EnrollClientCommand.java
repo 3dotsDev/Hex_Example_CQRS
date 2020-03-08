@@ -1,6 +1,6 @@
 package domain.commands.client;
 
-import domain.model.client.Email;
+import domain.writemodel.client.Email;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
